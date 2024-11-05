@@ -7,8 +7,8 @@ USE vehicle_app;
 -- Crear la tabla vehicles
 CREATE TABLE vehicles (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    vin VARCHAR(50) NOT NULL,
-    license_plate VARCHAR(20) NOT NULL,
+    vin VARCHAR(50) NOT NULL UNIQUE,
+    license_plate VARCHAR(20) NOT NULL UNIQUE,
     model VARCHAR(50) NOT NULL,
     status ENUM('active', 'inactive')  DEFAULT 'active',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -38,6 +38,6 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE getVehicles()
 BEGIN
-    SELECT * FROM vehicles;
+    SELECT * FROM vehicles ORDER BY created_at DESC;
 END //
 DELIMITER ;
