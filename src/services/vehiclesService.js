@@ -18,5 +18,13 @@ async function isLabelUnique(key, value) {
     return rows.length === 0;
 }
 
+async function isLabelUniqueById(key, value, vehicleId) {
+    const [rows] = await db.query(
+        'SELECT * FROM vehicles WHERE ? = ? AND id != ?',
+        [key, value, vehicleId]
+    );
+    return rows.length === 0;
+}
 
-module.exports = { getVehicles, insertVehicle, updateVehicle, isLabelUnique };
+
+module.exports = { getVehicles, insertVehicle, updateVehicle, isLabelUnique, isLabelUniqueById };
