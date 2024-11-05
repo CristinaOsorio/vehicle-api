@@ -6,27 +6,13 @@ const createVehicleValidator = require('./src/validators/vehicle/create.validato
 const updateVehicleValidator = require('./src/validators/vehicle/updated.validator');
 const { createVehicleController } = require('./src/controllers/vehicle/create.controller');
 const { updateVehicleController } = require('./src/controllers/vehicle/update.controller');
+const { getAll } = require('./src/controllers/vehicle/getAll.controller');
 
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.get('/api/vehicles', async (req, res) => {
-    try {
-        const vehicles = await getVehicles();
-        res.status(200).json({
-            success: true,
-            data: vehicles,
-            message: 'Vehicles retrieved successfully',
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Failed to retrieve vehicles',
-            error: error.message,
-        });
-    }
-});
+app.get('/api/vehicles', getAll);
 
 app.post('/api/vehicles', createVehicleValidator, createVehicleController);
 app.put('/api/vehicles/:id', updateVehicleValidator, updateVehicleController);
