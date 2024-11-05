@@ -70,3 +70,10 @@ npm start
 | POST   | /api/vehicles        | Crea un nuevo vehículo.                       |
 | PUT    | /api/vehicles/:id    | Actualiza un vehículo existente.              |
 
+## Ubicación del Frontend
+
+El frontend de la aplicación se encuentra en la siguiente ubicación:
+
+- **Frontend**: [Vehicle-App](https://github.com/CristinaOsorio/vehicle-app)
+
+Asegúrate de que el frontend esté ejecutándose en `http://localhost:4200` (o el puerto que hayas configurado) para poder interactuar con el backend correctamente.
