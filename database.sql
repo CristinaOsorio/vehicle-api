@@ -1,6 +1,3 @@
--- Crear la base de datos
-CREATE DATABASE vehicle_app;
-
 -- Usar la base de datos recién creada
 USE vehicle_app;
 
