@@ -18,7 +18,7 @@ const updateVehicleController = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            data: newVehicle,
+            data: null,
             message: 'Vehicle updated successfully',
         });
     } catch (error) {
